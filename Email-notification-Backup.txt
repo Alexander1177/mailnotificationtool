@@ -1,0 +1,20 @@
+#!/bin/bash
+#Purpose = Backup of Important Data
+#Created on 22-01-2020
+#Updated on 23-01-2020
+#Author = Alexandru Stan
+#Version 2.0
+#START
+TIME=`date +%b-%d-%y`                      # Aceasta comanda va adauga data in numele fisierului de backup.
+FILENAME=backup_$FILENAME-$TIME.tar.gz     # defineste tipul de fisier al backupului
+SRCDIR=/imp-data                           # Locatia folderului de documente importante.
+DESDIR=/backupfolder                       # Destinatia fisierului de backup.
+tar -cpzf $DESDIR/$FILENAME $SRCDIR 
+#Notificare prin Email
+if [ "$?" = "0" ]; then
+        echo "Backup Process was Successful. A new backup file $FILENAME has been created" | mailx -s "Backup Status Successful" internal@company.com
+else
+         echo "Backup Process Failed. Please contact System Administrator" | mailx -s "Backup Status Failed" internal@company.com
+        exit 1
+fi
+#END
