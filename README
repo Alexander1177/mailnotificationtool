@@ -6,6 +6,6 @@ or use sudo yum-install mailnag for the Red Hat Enterprise.
 2. After the instalation of the mail application copy the script in a non-volatile folder like: /mnt /opt /etc
 and make it bootable in the fstab configuration of linux.
 
-3. Run the script using the command: while true; do /mnt/Email-notification-Backup.txt; sleep 2; done &
+3. Run the script using the command: while true; do /mnt/Email-notification-Backup.txt; done &
 
 4. Include the command in the init or init.d tab to make it bootable at the start of the OS.
